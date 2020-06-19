@@ -8,6 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
   <link rel="shortcut icon" href="/assets/images/logo-162x162.png" type="image/x-icon">
   <meta name="description" content="Peta Sebaran Covid19">
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   
   
   <title>Edit Data</title>
