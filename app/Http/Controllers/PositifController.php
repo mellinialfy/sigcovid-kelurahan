@@ -331,7 +331,7 @@ class PositifController extends Controller
 
         
         // return $positif;
-        return view('data', ['positif' => $positif, 'kabupaten'=>$kabupaten, 'tglnow' => $tglnow, 'totaldirawat' => $totaldirawat, 'totalsembuh' => $totalsembuh, 'totalmeninggal' => $totalmeninggal, 'totalpositif' => $totalpositif]);
+        return view('data', ['positif' => $positif, 'levelsebaran' => $levelsebaran, 'kabupaten'=>$kabupaten, 'tglnow' => $tglnow, 'totaldirawat' => $totaldirawat, 'totalsembuh' => $totalsembuh, 'totalmeninggal' => $totalmeninggal, 'totalpositif' => $totalpositif]);
 
         // data sesuai nama file blade
         // 'positif' ini adalah nama untuk di bladenya, ex: positif as $p
