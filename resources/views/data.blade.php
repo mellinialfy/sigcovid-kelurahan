@@ -267,7 +267,7 @@
             <div class="col-md-6">
               <div class="dataTables_info mbr-fonts-style display-7">
                 <!-- <span class="infoBefore">Sumber Data : Dinas Kesehatan Provinsi Bal</span>  -->
-                <span class="inactive infoRows">Sumber Data : Dinas Kesehatan Provinsi Bali</span>
+                <span class="inactive infoRows">Sumber Data : manpits.xyz/uasgis/</span>
                 <!-- <span class="infoAfter"></span>
                 <span class="infoFilteredBefore"></span>
                 <span class="inactive infoRows"></span>
