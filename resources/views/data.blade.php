@@ -358,11 +358,11 @@
 <script>
   $(function () {
     $('#carikabupaten').on('change', function () {
-        axios.post('{{ route('data.getKecamatan') }}', {id_kabupaten: $(this).val()})
+        axios.post('{{ route('data.getKecamatan') }}', {id_kabupaten: $(this).val()}, headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }))
             .then(function (response) {
                 $('#carikecamatan').empty();
-                // var kabupaten = $(this).val();
-                // var nama   = $('#carikecamatan').val('<option value=''>' Semua K '</option>');
                 
                 $.each(response.data, function (id_kecamatan, nama_kecamatan) {
                     $('#carikecamatan').append(new Option(nama_kecamatan, id_kecamatan))
@@ -371,7 +371,9 @@
     });
 
     $('#carikecamatan').on('change', function () {
-        axios.post('{{ route('datakel.getKelurahan') }}', {id_kecamatan: $(this).val()})
+        axios.post('{{ route('datakel.getKelurahan') }}', {id_kecamatan: $(this).val()},  headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }))
             .then(function (response) {
                 $('#carikelurahan').empty();
 
@@ -385,13 +387,6 @@
 });
 </script>
 
-<script>
-  $.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    }
-});
-</script>
 
 
 
