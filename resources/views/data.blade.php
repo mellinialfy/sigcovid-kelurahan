@@ -221,8 +221,8 @@
                         {{strtoupper($levelsebaran)}}</th>
                         @endif
                         <th class="head-item mbr-fonts-style display-6 sorting" rowspan="2" colspan="1">LEVEL</th>
-                        <th class="head-item mbr-fonts-style display-6 sorting" rowspan="1" colspan="5">PENYEBARAN</th>
-                        <th class="head-item mbr-fonts-style display-6 sorting" rowspan="1" colspan="4">KONDISI</th>
+                        <th class="head-item mbr-fonts-style display-6" rowspan="1" colspan="5">PENYEBARAN</th>
+                        <th class="head-item mbr-fonts-style display-6" rowspan="1" colspan="4">KONDISI</th>
                         <th class="head-item mbr-fonts-style display-6 " rowspan="2" colspan="1">AKSI</th>
                         
                       </tr>
