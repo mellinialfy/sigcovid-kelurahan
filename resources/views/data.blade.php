@@ -9,6 +9,7 @@
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   <link rel="shortcut icon" href="/assets/images/logo-162x162.png" type="image/x-icon">
   <meta name="description" content="Peta Sebaran Covid19">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   
   
   <title>Home</title>
@@ -383,6 +384,15 @@
     
 });
 </script>
+
+<script>
+  $.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+</script>
+
 
 
 <script>
