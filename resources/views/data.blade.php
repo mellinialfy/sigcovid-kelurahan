@@ -9,7 +9,6 @@
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   <link rel="shortcut icon" href="/assets/images/logo-162x162.png" type="image/x-icon">
   <meta name="description" content="Peta Sebaran Covid19">
-  <meta name="csrf-token" content="{{ csrf_token() }}">
   
   
   <title>Home</title>
@@ -365,9 +364,7 @@
                 // var nama   = $('#carikecamatan').val('<option value=''>' Semua K '</option>');
                 
                 $.each(response.data, function (id_kecamatan, nama_kecamatan) {
-                    // $('#carikecamatan').append('<option value='+ # +'>' + Semua Kecamatan + '</option>');
-                    var kabupaten = $('#carikecamatan').val();
-                    $('#carikecamatan').append('<option value=' + id_kecamatan + '>' + nama_kecamatan + '</option>');
+                    $('#carikecamatan').append(new Option(nama_kecamatan, id_kecamatan))
                 })
             });
     });
@@ -383,12 +380,6 @@
             });
     });
     
-
-});
-        $.ajaxSetup({
-        headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
     
 });
 </script>
