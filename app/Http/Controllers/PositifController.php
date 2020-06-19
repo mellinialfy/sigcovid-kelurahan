@@ -53,35 +53,27 @@ class PositifController extends Controller
             ->join('tb_kecamatan', 'tb_kelurahan.id_kecamatan', '=', 'tb_kecamatan.id_kecamatan')
             ->join('tb_kabupaten', 'tb_kecamatan.id_kabupaten', '=', 'tb_kabupaten.id_kabupaten')
             ->where('tgl',$request->caritgl)
-            ->where('tb_kabupaten.id_kabupaten')
-            ->groupby('tb_kabupaten.id_kabupaten')
             ->get();
 
-            $totalsembuh = Positif::select(DB::raw('COALESCE(SUM(sembuh),0) as sembuh'))
+            $totalsembuh = Positif::select(DB::raw('COALESCE(SUM(tb_positif.sembuh),0) as sembuh'))
             ->join('tb_kelurahan', 'tb_positif.id_kelurahan', '=', 'tb_kelurahan.id_kelurahan')
             ->join('tb_kecamatan', 'tb_kelurahan.id_kecamatan', '=', 'tb_kecamatan.id_kecamatan')
             ->join('tb_kabupaten', 'tb_kecamatan.id_kabupaten', '=', 'tb_kabupaten.id_kabupaten')
             ->where('tgl',$request->caritgl)
-            ->where('tb_kabupaten.id_kabupaten')
-            ->groupby('tb_kabupaten.id_kabupaten')
             ->get();
 
-            $totalmeninggal = Positif::select(DB::raw('COALESCE(SUM(meninggal),0) as meninggal'))
+            $totalmeninggal = Positif::select(DB::raw('COALESCE(SUM(tb_positif.meninggal),0) as meninggal'))
             ->join('tb_kelurahan', 'tb_positif.id_kelurahan', '=', 'tb_kelurahan.id_kelurahan')
             ->join('tb_kecamatan', 'tb_kelurahan.id_kecamatan', '=', 'tb_kecamatan.id_kecamatan')
             ->join('tb_kabupaten', 'tb_kecamatan.id_kabupaten', '=', 'tb_kabupaten.id_kabupaten')
             ->where('tgl',$request->caritgl)
-            ->where('tb_kabupaten.id_kabupaten')
-            ->groupby('tb_kabupaten.id_kabupaten')
             ->get();
 
-            $totalpositif = Positif::select(DB::raw('COALESCE(SUM(jml_positif),0) as jml_positif'))
+            $totalpositif = Positif::select(DB::raw('COALESCE(SUM(tb_positif.jml_positif),0) as jml_positif'))
             ->join('tb_kelurahan', 'tb_positif.id_kelurahan', '=', 'tb_kelurahan.id_kelurahan')
             ->join('tb_kecamatan', 'tb_kelurahan.id_kecamatan', '=', 'tb_kecamatan.id_kecamatan')
             ->join('tb_kabupaten', 'tb_kecamatan.id_kabupaten', '=', 'tb_kabupaten.id_kabupaten')
             ->where('tgl',$request->caritgl)
-            ->where('tb_kabupaten.id_kabupaten')
-            ->groupby('tb_kabupaten.id_kabupaten')
             ->get();
 
             $positif=Positif::select('tb_positif.id_positif','tb_kabupaten.nama_kabupaten as nama', 
@@ -99,7 +91,6 @@ class PositifController extends Controller
             ->rightjoin('tb_kelurahan', 'tb_positif.id_kelurahan', '=', 'tb_kelurahan.id_kelurahan')
             ->rightjoin('tb_kecamatan', 'tb_kecamatan.id_kecamatan', '=', 'tb_kelurahan.id_kecamatan')
             ->rightjoin('tb_kabupaten', 'tb_kecamatan.id_kabupaten', '=', 'tb_kabupaten.id_kabupaten')
-            ->where('tb_kabupaten.id_kabupaten',$request->carikabupaten)
             ->groupby('tb_kabupaten.id_kabupaten')
             // ->paginate(10);
             ->get();
