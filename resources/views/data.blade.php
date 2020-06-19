@@ -212,7 +212,14 @@
                 
                 <thead>
                     <tr class="table-heads">
-                        <th class="head-item mbr-fonts-style display-6 sorting" rowspan="2" colspan="1">{{strtoupper($levelsebaran)}}</th>
+                        @if(!$levelsebaran)
+                        <th class="head-item mbr-fonts-style display-6 sorting" rowspan="2" colspan="1">
+                        KABUPATEN</th>
+
+                        @else
+                        <th class="head-item mbr-fonts-style display-6 sorting" rowspan="2" colspan="1">
+                        {{strtoupper($levelsebaran)}}</th>
+                        @endif
                         <th class="head-item mbr-fonts-style display-6 sorting" rowspan="2" colspan="1">LEVEL</th>
                         <th class="head-item mbr-fonts-style display-6 sorting" rowspan="1" colspan="5">PENYEBARAN</th>
                         <th class="head-item mbr-fonts-style display-6 sorting" rowspan="1" colspan="4">KONDISI</th>
