@@ -160,6 +160,7 @@
     </h3>
     <!-- search -->
     <form action="/" method="GET">
+    {{ csrf_field() }}
       <div class="input-group">
         <div class="col-md-3">
           <label class="mbr-fonts-style display-6">Level Sebaran</label>
@@ -377,7 +378,10 @@
 });
 </script>
 
-
+<script>
+    // CSRF for all ajax call
+    $.ajaxSetup({ headers: { 'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content') } });
+</script>
 
 <script>
   $(document).ready(function () {
