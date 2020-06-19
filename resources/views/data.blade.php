@@ -358,9 +358,7 @@
 <script>
   $(function () {
     $('#carikabupaten').on('change', function () {
-        axios.post('{{ route('data.getKecamatan') }}', {id_kabupaten: $(this).val()}, headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    }))
+        axios.post('{{ route('data.getKecamatan') }}', {id_kabupaten: $(this).val()})
             .then(function (response) {
                 $('#carikecamatan').empty();
                 
@@ -369,24 +367,8 @@
                 })
             });
     });
-
-    $('#carikecamatan').on('change', function () {
-        axios.post('{{ route('datakel.getKelurahan') }}', {id_kecamatan: $(this).val()},  headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    }))
-            .then(function (response) {
-                $('#carikelurahan').empty();
-
-                $.each(response.data, function (id_kelurahan, nama_kelurahan) {
-                    $('#carikelurahan').append(new Option(nama_kelurahan, id_kelurahan))
-                })
-            });
-    });
-    
-    
 });
 </script>
-
 
 
 
