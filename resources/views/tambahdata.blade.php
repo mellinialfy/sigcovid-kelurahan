@@ -165,7 +165,6 @@
                 $('#id_kecamatan').empty();
 
                 $.each(response.data, function (id_kecamatan, nama_kecamatan) {
-                    // $('#carikecamatan').append('<option value='+ # +'>' + Semua Kecamatan + '</option>');
                     $('#id_kecamatan').append('<option value=' + id_kecamatan + '>' + nama_kecamatan + '</option>');
                 })
             });
