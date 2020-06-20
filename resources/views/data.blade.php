@@ -467,16 +467,16 @@
           var positif;
 
           
-          var HIJAU_MUDA = {opacity:'0.8',color:'#000', fillColor:'#81F781', fillOpacity:'0.8',dashArray:'4'};
-          var HIJAU_TUA = {opacity:'0.8',color:'#000', fillColor:'#088A08',fillOpacity:'0.8',dashArray:'4'};
+          var HIJAU_MUDA = {opacity:'0.8',color:'#000', fillColor:'#98FB98', fillOpacity:'0.8',dashArray:'4'};
+          var HIJAU_TUA = {opacity:'0.8',color:'#000', fillColor:'#006400',fillOpacity:'0.8',dashArray:'4'};
           var KUNING = {opacity:'0.8',color:'#000', fillColor:'#FFFF00',fillOpacity:'0.8',dashArray:'4'};
-          var MERAH_MUDA = {opacity:'0.8',color:'#000', fillColor:'#F78181',fillOpacity:'0.8',dashArray:'4'};
-          var MERAH_TUA = {opacity:'0.8',color:'#000', fillColor:'#B40404',fillOpacity:'0.8', dashArray:'4'};
+          var MERAH_MUDA = {opacity:'0.8',color:'#000', fillColor:'#  FFC0CB',fillOpacity:'0.8',dashArray:'4'};
+          var MERAH_TUA = {opacity:'0.8',color:'#000', fillColor:'#8B0000',fillOpacity:'0.8', dashArray:'4'};
 
           if(!Array.isArray(dataMap) || !dataMap.length == 0 ){
-            var searchResult = dataMap.filter(function(it){
-              return it.kecamatan.replace(/\s/g,'').toLowerCase() === kec.replace(/\s/g,'').toLowerCase() &&
-              it.kelurahan.replace(/\s/g,'').toLowerCase() === kel.replace(/\s/g,'').toLowerCase();
+            var searchResult = dataMap.filter(function(it) {
+              return it.nama_kecamatan.replace(/\s/g,'').toLowerCase() === kec.replace(/\s/g,'').toLowerCase() &&
+              it.nama_kelurahan.replace(/\s/g,'').toLowerCase() === kel.replace(/\s/g,'').toLowerCase();
             });
 
             if(!Array.isArray(searchResult) || !searchResult.length ==0){
@@ -517,13 +517,13 @@
               positif +='    <td>PP-LN</td>';
               positif +='    <td>: '+item.ppln+'</td>';
               positif +='  </tr>';
-              positif +='  <tr>';
 
+              positif +='  <tr>';
               positif +='    <td>PP-DN</td>';
               positif +='    <td>: '+item.ppdn+'</td>';
               positif +='  </tr>';
-              positif +='  <tr>';
 
+              positif +='  <tr>';
               positif +='    <td>TL</td>';
               positif +='    <td>: '+item.tl+'</td>';
               positif +='  </tr>';
