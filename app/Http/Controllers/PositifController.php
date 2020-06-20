@@ -561,22 +561,21 @@ class PositifController extends Controller
             $tanggal = $request->date;
         }
 
-        $dataMap = Positif::select('tb_positif.id_positif', 'tb_kabupaten.id_kabupaten', 'tb_kabupaten.nama_kabupaten', 'tb_kecamatan.id_kecamatan', 'tb_kecamatan.nama_kecamatan', 'tb_kelurahan.id_kelurahan', 'tb_kelurahan.nama_kelurahan', 'tb_positif.sembuh', 'tb_positif.dirawat', 'tb_positif.jml_positif', 'tb_positif.meninggal')
-        ->rightjoin('tb_kelurahan', 'tb_positif.id_kelurahan', '=', 'tb_positif.id_positif')
-        ->rightjoin('tb_kecamatan', 'tb_kelurahan.id_kecamatan', '=', 'tb_kecamatan.id_kecamatan')
-        ->rightjoin('tb_kabupaten', 'tb_kecamatan.id_kabupaten', '=', 'tb_kabupaten.id_kabupaten')
-        ->where('tgl', $tanggal)
-        ->orderby('id_kabupaten','ASC')
-        ->get();
+        $dataMap=Positif::select('tb_positif.id_positif', 'tb_kelurahan.id_kelurahan','tb_kelurahan.nama_kelurahan','tb_kecamatan.id_kecamatan','tb_kecamatan.nama_kecamatan', 'tb_positif.level', 'tb_positif.ppln', 'tb_positif.ppdn', 'tb_positif.tl', 'tb_positif.lainnya', 'tb_positif.total', 'tb_positif.dirawat', 'tb_positif.sembuh', 'tb_positif.meninggal', 'tb_positif.jml_positif', 'tb_positif.tgl')
+            ->rightjoin('tb_kelurahan', 'tb_positif.id_kelurahan', '=', 'tb_kelurahan.id_kelurahan')
+            ->rightjoin('tb_kecamatan', 'tb_kecamatan.id_kecamatan', '=', 'tb_kelurahan.id_kecamatan')
+            ->where('tb_positif.tgl','like',"%".$tanggal."%")
+            // ->paginate(10);
+            ->get();
 
-        $dataColor = Positif::select('tb_positif.id_positif', 'tb_kabupaten.id_kabupaten', 'tb_kabupaten.nama_kabupaten', 'tb_kecamatan.id_kecamatan', 'tb_kecamatan.nama_kecamatan', 'tb_kelurahan.id_kelurahan', 'tb_kelurahan.nama_kelurahan', 'tb_positif.sembuh', 'tb_positif.dirawat', 'tb_positif.jml_positif', 'tb_positif.meninggal')
-        ->rightjoin('tb_kelurahan', 'tb_positif.id_kelurahan', '=', 'tb_positif.id_positif')
-        ->rightjoin('tb_kecamatan', 'tb_kelurahan.id_kecamatan', '=', 'tb_kecamatan.id_kecamatan')
-        ->rightjoin('tb_kabupaten', 'tb_kecamatan.id_kabupaten', '=', 'tb_kabupaten.id_kabupaten')
-        ->where('tgl', $tanggal)
-        ->orderby('jml_positif','DESC')
-        ->get();
-        return response()->json(["dataMap"=>$dataMap, "dataColor"=>$dataColor]);
+//         $dataColor = Positif::select('tb_positif.id_positif', 'tb_kabupaten.id_kabupaten', 'tb_kabupaten.nama_kabupaten', 'tb_kecamatan.id_kecamatan', 'tb_kecamatan.nama_kecamatan', 'tb_kelurahan.id_kelurahan', 'tb_kelurahan.nama_kelurahan', 'tb_positif.sembuh', 'tb_positif.dirawat', 'tb_positif.jml_positif', 'tb_positif.meninggal')
+//         ->rightjoin('tb_kelurahan', 'tb_positif.id_kelurahan', '=', 'tb_positif.id_positif')
+//         ->rightjoin('tb_kecamatan', 'tb_kelurahan.id_kecamatan', '=', 'tb_kecamatan.id_kecamatan')
+//         ->rightjoin('tb_kabupaten', 'tb_kecamatan.id_kabupaten', '=', 'tb_kabupaten.id_kabupaten')
+//         ->where('tgl', $tanggal)
+//         ->orderby('jml_positif','DESC')
+//         ->get();
+        return response()->json(["dataMap"=>$dataMap]);
         // return $positif;
     }
 
