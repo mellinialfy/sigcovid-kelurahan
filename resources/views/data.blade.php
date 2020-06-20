@@ -470,7 +470,7 @@
           var HIJAU_MUDA = {opacity:'0.8',color:'#000', fillColor:'#98FB98', fillOpacity:'0.8',dashArray:'4'};
           var HIJAU_TUA = {opacity:'0.8',color:'#000', fillColor:'#006400',fillOpacity:'0.8',dashArray:'4'};
           var KUNING = {opacity:'0.8',color:'#000', fillColor:'#FFFF00',fillOpacity:'0.8',dashArray:'4'};
-          var MERAH_MUDA = {opacity:'0.8',color:'#000', fillColor:'#  FFC0CB',fillOpacity:'0.8',dashArray:'4'};
+          var MERAH_MUDA = {opacity:'0.8',color:'#000', fillColor:'#FFC0CB',fillOpacity:'0.8',dashArray:'4'};
           var MERAH_TUA = {opacity:'0.8',color:'#000', fillColor:'#8B0000',fillOpacity:'0.8', dashArray:'4'};
 
           if(!Array.isArray(dataMap) || !dataMap.length == 0 ){
