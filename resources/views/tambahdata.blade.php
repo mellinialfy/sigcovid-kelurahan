@@ -167,6 +167,7 @@
                 $.each(response.data, function (id_kecamatan, nama_kecamatan) {
                     $('#id_kecamatan').append('<option value=' + id_kecamatan + '>' + nama_kecamatan + '</option>');
                 })
+                console.log(response);
             });
     });
 
