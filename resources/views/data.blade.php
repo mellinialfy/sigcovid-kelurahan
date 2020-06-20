@@ -366,7 +366,7 @@
 <script>
   $(function () {
     $('#carikabupaten').on('change', function () {
-        axios.post('{{ route('data.getKecamatan') }}', { withCredentials: true }, {id_kabupaten: $(this).val()})
+        axios.get('{{ route('data.getKecamatan') }}', { withCredentials: true }, {id_kabupaten: $(this).val()})
             .then(function (response) {
                 $('#carikecamatan').empty();
                 console.error();
