@@ -369,6 +369,7 @@
         axios.post('{{ route('data.getKecamatan') }}', {id_kabupaten: $(this).val()})
             .then(function (response) {
                 $('#carikecamatan').empty();
+                console.error();
                 
                 $.each(response.data, function (id_kecamatan, nama_kecamatan) {
                     $('#carikecamatan').append(new Option(nama_kecamatan, id_kecamatan))
