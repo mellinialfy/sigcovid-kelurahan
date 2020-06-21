@@ -371,6 +371,36 @@
     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
   }
 });
+
+var createCORSRequest = function(method, url) {
+  var xhr = new XMLHttpRequest();
+  if ("withCredentials" in xhr) {
+    // Most browsers.
+    xhr.open(method, url, true);
+  } else if (typeof XDomainRequest != "undefined") {
+    // IE8 & IE9
+    xhr = new XDomainRequest();
+    xhr.open(method, url);
+  } else {
+    // CORS not supported.
+    xhr = null;
+  }
+  return xhr;
+};
+
+var url = 'https://sigcovid-kelurahan.herokuapp.com/';
+var method = 'POST';
+var xhr = createCORSRequest(method, url);
+
+xhr.onload = function() {
+  // Success code goes here.
+};
+
+xhr.onerror = function() {
+  // Error code goes here.
+};
+
+xhr.send();
         axios.post('{{ route('data.getKecamatan') }}', { withCredentials: true }, {id_kabupaten: $(this).val()})
             .then(function (response) {
                 $('#carikecamatan').empty();
