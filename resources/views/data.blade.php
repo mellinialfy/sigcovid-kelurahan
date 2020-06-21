@@ -531,7 +531,7 @@
               positif +='  </tr>';
 
               positif +='  <tr>';
-              positif +='    <td>TL</td>';
+              positif +='    <td>Transmisi LokalL</td>';
               positif +='    <td>: '+item.tl+'</td>';
               positif +='  </tr>';
               
