@@ -366,6 +366,11 @@
 <script>
   $(function () {
     $('#carikabupaten').on('change', function () {
+    $.ajaxSetup({
+  headers: {
+    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+  }
+});
         axios.post('{{ route('data.getKecamatan') }}', { withCredentials: true }, {id_kabupaten: $(this).val()})
             .then(function (response) {
                 $('#carikecamatan').empty();
